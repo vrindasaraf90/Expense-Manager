@@ -2,9 +2,8 @@ package com.streamliners.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-
-import com.streamliners.menu.Operations;
 
 
 public class Transaction {
@@ -12,7 +11,7 @@ public class Transaction {
     public static String TYPE_INCOME = "i";
 
     private String type;
-    private String date;
+    private Date date;
     private float amt;
     private String description;
 
@@ -21,7 +20,7 @@ public class Transaction {
 
      public Transaction(String type, String date, float amt, String description){
          try {
-             this.date = String.valueOf(dateFormat.parse(date));
+             this.date = (dateFormat.parse(date));
          } catch (ParseException e) {
              System.out.println("e");
          }
@@ -43,12 +42,12 @@ public class Transaction {
         return type;
     }
 
-    public void setDate(String date){
+    public void setDate(Date date){
         this.date = date;
     }
 
-    public String getDate(){
-        return date;
+    public void getDate(){
+        return;
     }
 
     public void setAmt(float amt){
@@ -65,6 +64,10 @@ public class Transaction {
 
     public String getDescription(){
         return description;
+    }
+
+    public String getDateInString() {
+        return null;
     }
 }
 
